@@ -1,0 +1,12 @@
+{
+  "name": "Vaot Web Chat",
+  "version": "0.0.1",
+  "description": "a sample node.js app for heroku",
+  "dependencies": {
+    "express": "~3.4.0"
+  },
+  "engines": {
+    "node": "0.10.17",
+    "npm": "1.3.8"
+  }
+}
