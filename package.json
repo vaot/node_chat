@@ -1,9 +1,16 @@
 {
-  "name": "Vaot Web Chat",
+  "name": "vaotchat",
   "version": "0.0.1",
   "description": "a sample node.js app for heroku",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vaot/node_chat.git"
+  },
   "dependencies": {
-    "express": "~3.4.0"
+    "express": "~3.4.0",
+    "socket.io": "~0.9.16",
+    "request": "~2.27.0",
+    "jade":"~0.35.0"
   },
   "engines": {
     "node": "0.10.17",
