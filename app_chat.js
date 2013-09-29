@@ -4,7 +4,7 @@ var express = require('express'),
     server = http.createServer(app),
     io = require('socket.io').listen(server);
 
-server.listen(8080);
+server.listen(process.env.PORT || 5000);
 app.set('views', __dirname + '/views');
 app.set('view options', { layout: false });
 app.set('view engine', 'jade');
