@@ -1,7 +1,6 @@
 node_chat
 =========
 
-A web chat built with node.js and socket.io
+A web chat built with node.js and socket.io. Learning purposes.
 
-run 
-''' node app_chat '''
+http://murmuring-citadel-7178.herokuapp.com/
