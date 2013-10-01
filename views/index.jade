@@ -2,35 +2,19 @@ script( src="/socket.io/socket.io.js" )
 script( src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" )
 script( src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js" )
 link( rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css' )
-
-script( type='text/javascript' ).
-  $(function() {
-    var socket = io.connect();
-    socket.on('connect', function(data) {
-      nickname = prompt('Whats your nickname ?');
-      socket.emit('join', nickname);
-    });
-    socket.on('messages', function(data){
-      $('.messages-box').append('<blocknote><p>' + data + '</p></blocknote>');
-    });
-    $('#chat_input').on('keypress', function(e){
-      if (e.which == 13) {
-        $('#submit').click();
-        $(this).val('');
-      }
-    });
-    $('#submit').on('click', function(e) {
-      e.preventDefault();
-      var message = $('#chat_input').val();
-      socket.emit('messages', message);
-    });
-  });
+link( rel='stylesheet', href='/stylesheets/default.css' )
+script( src='/javascripts/socket_io_ui.js' )
 
 div( class="container" )
   div( class="panel panel-default" )
     div( class="panel-heading" )
-      div( class="panel-title" ).
-        CMPT 120 WEB CHAT by Victor Andrey(vaot)
+      div( class="panel-title" )
+        h2 Created by
+          span(style='margin-left:10px;',class="label label-primary") vaot
+      iframe( src="http://ghbtns.com/github-btn.html?user=vaot&repo=node_chat&type=follow"
+  allowtransparency="true", frameborder="0", scrolling="0", width="100", height="20")
+      iframe( src="http://ghbtns.com/github-btn.html?user=vaot&repo=node_chat&type=watch"
+  allowtransparency="true", frameborder="0", scrolling="0", width="100", height="20")
     div( class="panel-body" )
       div( class='messages-box' )
       div( class="input-group" )
