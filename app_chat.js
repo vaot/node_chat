@@ -2,7 +2,8 @@ var express = require('express'),
     app = express(),
     http = require('http'),
     server = http.createServer(app),
-    io = require('socket.io').listen(server);
+    io = require('socket.io').listen(server),
+    clientCounter = 0;
 
 server.listen(process.env.PORT || 5000);
 
@@ -27,6 +28,9 @@ io.configure(function () {
 io.sockets.on('connection', function(client){
   console.log('Connecting client...');
 
+  clientCounter++;
+  io.sockets.emit('count', { number: clientCounter });
+
   client.on('join', function(name){
     client.set('nickname', name);
   });
@@ -35,6 +39,12 @@ io.sockets.on('connection', function(client){
     client.get('nickname', function(err, name) {
       io.sockets.emit("messages", name + ": " + data);
     });
+  });
+
+  client.on('disconnect', function () {
+    clientCounter--;
+    console.log('getting out of here');
+    io.sockets.emit('count', { number: clientCounter });
   });
 
 });

@@ -11,6 +11,12 @@ $(function() {
     $messageBox.append('<blocknote><p>' + data + '</p></blocknote>');
     $messageBox.scrollTop(height);
   });
+
+  socket.on('count', function(data){
+    var $counterBox = $('.counter');
+    $counterBox.text(data.number);
+  });
+
   $('#chat_input').on('keypress', function(e){
     if (e.which == 13) {
       $('#submit').click();
